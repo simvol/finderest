@@ -1,0 +1,39 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<div ng-controller='groupsController' ng-init='initOwnGroups()'>
+  <div class='panel content col-xs-10'>
+    <div class='row'>
+      <div class='col-xs-12'>
+        <h1>Groups</h1>
+        <hr/>
+
+        <table class=" table-hover">
+          <tbody>
+              <tr>
+                <th>Group Name</th>
+                <!-- <th>Owner</th> -->
+                <th>Category</th>
+                <th>Number of members</th>
+                <th>Address</th>
+                <th>Meeting times</th>
+              </tr>
+              <tr ng-show="! groups.length"><td colspan="5" class="center" ><br> You have no groups owned.<br>Maybe it's time to start your own group.</td> <tr>
+              <tr ng-repeat="group in groups">
+                  <td><a ui-sref='groups.edit' ng-click="setGroupId()">{{ group.group_name }}</a></td>
+                  <!-- <td>{{ group.owner }}</td> -->
+                  <td><ul><li ng-repeat='item in group.category'> {{item}} </li></ul> </td>
+                  <td style="text-align: center">{{ group.members.length }}</td>
+                  <td  ng-show="groups.length">{{ group.address.address}} <br>
+                    {{ group.address.city }}, {{ group.address.state }} - {{ group.address.country }} - {{ group.address.postal_code }}</td>
+                  <td><ul><li ng-repeat='item in group.meeting_time'> Day: {{item.day}} <br> From: {{item.start}} To: {{ item.end}}</td>
+              </tr>
+          </tbody>
+        </table>
+    </div> <!--end row-->
+  </div> <!--well col10-->
+</div> <!--controller-->

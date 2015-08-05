@@ -1,0 +1,29 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<div ng-controller='userController' ng-init='init()'>
+  <div class=' content col-xs-10'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <h4> {{name}} </h4>
+        <hr/>
+
+        <!--Display users information-->
+        <ul class='list-group'>
+          <li class='list-group-item'> <b> Interests:</b> <ul><li ng-repeat='interest in interests'> {{interest}} </li></ul> </li>
+          <li class='list-group-item'> <b> Skills: </b> <ul><li ng-repeat='skill in skills'> {{skill}} </li></ul></li>
+          <li class='list-group-item'> <b> Locations: </b> <ul><li ng-repeat='location in locations'> {{location}} </li></ul></li>
+          <li class='list-group-item'> <b> Participate </b><ul><li ng-repeat='group in groups'> {{group}} </li></ul> </li>
+        </ul>
+      </div><!--end left part-->
+      <!--right part-->
+      <div class='col-xs-5'>
+        <img class='img-responsive' src='{{image}}'> </img>
+      </div> <!--end right part-->
+    </div> <!--end row-->
+  </div> <!--well col10-->
+</div> <!--controller-->

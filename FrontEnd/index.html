@@ -1,0 +1,60 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<!doctype html>
+<html>
+<head>
+  <title> Finderest </title>
+  <meta charset="utf-8">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="styles/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="scripts/jquery-2.1.4.min.js" > </script>
+  <script src="scripts/angular.min.js"></script> 
+  <script src="scripts/angular-cookies.js"></script> 
+  <script src="scripts/angular-ui-router.min.js"></script>
+
+  <script src="scripts/angular.js"></script>
+  <script src="scripts/authentication.js"></script>
+  <script src="scripts/controllers.js"></script>
+  <script src="scripts/groupControllers.js"></script>
+</head>
+<body ng-app="myApp" >
+    <div class='container main-wrapper'>
+      <!--Main Header Area-->
+    
+      <div ui-view='header'></div>
+    
+
+        <div class='row'>
+    
+            <!--Login-->
+          <div ui-view='login'></div>
+    
+    
+            <!--Navigation Sidebar-->
+          <div ui-view='sidebar'></div>
+    
+    
+              <!--Main content-->
+          <div ui-view='main'></div>
+    
+    
+        </div>
+  </div> <!--mainwrapper-->
+ <script src="scripts/bootstrap.min.js"></script>
+ <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+</body>
+</html>
+

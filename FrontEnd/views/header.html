@@ -1,0 +1,34 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<!-- Main header view -->
+
+<header ng-controller='headerController' ng-init='init()'>
+  <div class='navbar navbar-default'>
+      <div class='navbar-header'>
+        <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#menu'>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+        <a href='index.html' class='navbar-brand'> Finderest </a>
+      </div><!--end-container-->
+      <div class='collapse navbar-collapse' id='menu'>
+        <ul class='nav navbar-nav'>
+          <li ng-class="getClass('/user')" ><a href='#' ui-sref='user' class='active'>Myself</a></li>
+          <li ng-class="getClass('/groups')" ><a href='#' ui-sref='groups' >Groups</a></li>
+        </ul>
+        <form action='' class='navbar-form navbar-right' role='search'>
+          <div class='form-group'>
+            <input type='text' class='form-control' placeholder='Search'/>
+            <button ng-click='logout()' class='btn btn-primary' ng-disabled='loginForm.$invalid'>Logout</button>
+          </div>
+        </form>
+      </div>
+   </div><!--end-navbarheader-->
+</header>
+

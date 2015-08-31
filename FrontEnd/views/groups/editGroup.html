@@ -1,0 +1,75 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<div ng-controller='groupsController ' ng-init='initEditGroups()'>
+  <div class='panel  content col-xs-10'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <h4> Edit Group - {{newgroup.group_name}} </h4>
+        <hr/>
+
+        <form ng-submit="editGroup()">
+          <ul class='list-group-item'>
+            <li class='list-group-item'> <b>Group ID:</b> <input type="number" ng-model="newgroup.group_id" readonly> </li>
+            <li class='list-group-item'> <b>Group Name:</b> <input type="text" ng-model="newgroup.group_name"> </li>
+            <!-- li class='list-group-item'> <b>Owner Email</b> <input type="text" name="group-name" ng-model="owner"> </li> -->            
+            <li class="list-group-item"> <b>Members:</b> 
+              <div ng-repeat="member in newgroup.members">
+                <input type="text" ng-model="member" readonly><button type="button" ng-click="removeMember()">Remove</button>
+              </div>
+            </li>
+            <li class="list-group-item"> <b>Category:</b> 
+             
+              <input type="text" placeholder="Category name" ng-model="newCategory"> <button type="button" ng-click="addCategory()">Add</button>
+              <hr>
+              <div ng-repeat="item in newgroup.category">
+                <input type="text" ng-model="item" readonly><button type="button" ng-click="removeCategory()">Remove</button>
+              </div>
+            </li>
+
+            <li class='list-group-item'> <b>About this broup:</b> <textarea  ng-model="newgroup.info" cols="30" rows="10"></textarea> </li>
+
+            <li class="list-group-item"> <b>Address:</b> <input type="text" placeholder="123 Street" ng-model="newgroup.address.address"> </li>
+            <li class="list-group-item"> <b>City:</b> <input type="text" placeholder="Vancouver" ng-model="newgroup.address.city"> </li>
+            <li class="list-group-item"> <b>State:</b> <input type="text" placeholder="BC" ng-model="newgroup.address.state"> </li>
+            <li class="list-group-item"> <b>Country:</b> <input type="text" placeholder="Canada" ng-model="newgroup.address.country"> </li>
+            <li class="list-group-item"> <b>Postal Code:</b> <input type="text" placeholder="V6E 1G3" ng-model="newgroup.address.postal_code"> </li>
+			
+      			<li class="list-group-item"> <b>Entry Requests:</b> 
+      			  <p ng-show="! newgroup.entry_reqs.length"> No requests pending for approval.<p>
+              <div ng-repeat="entry_req in newgroup.entry_reqs">
+                <input type="text" ng-model="entry_req" readonly> <button type="button" ng-click="approveReq()">Approve</button> <button type="button" ng-click="rejectReq()">Reject</button>
+              </div>
+            </li>
+			
+            <li class="list-group-item"> <b>Meeting time:</b> 
+              
+              <input type="day" placeholder="Saturday" ng-model="newMeeting.day"> <br>
+              <input type="start" placeholder="2 pm" ng-model="newMeeting.start"> <br>
+              <input type="end" placeholder="4 pm" ng-model="newMeeting.end"> <button type="button" ng-click="addMeeting()">Add</button>
+              <div ng-repeat="meeting in newgroup.meeting_time">  
+                <hr>
+                <input type="day" placeholder="Saturday" ng-model="meeting.day"> <br>
+                <input type="start" placeholder="2 pm" ng-model="meeting.start"> <br>
+                <input type="end" placeholder="4 pm" ng-model="meeting.end"><button type="button" ng-click="removeMeeting()">Remove</button>
+              </div>
+            </li>
+    
+            <li class='list-group-item'> <b>Group Image:</b> <input type="text" placeholder="http://image_url_goes_here.com " ng-model="newgroup.image"> <button type="button" ng-click="uploadImage()">Load image</button></li>
+          </ul>
+          <input type="submit" name="submit" value="Submit">
+        </form>
+      </div><!--end left part-->
+      <!--right part-->
+      <div class='col-xs-5'>
+        <br><br><br><br>
+        <img class='img-responsive center' src='{{newgroup.image}}'> </img>
+      </div> 
+      <!--end right part-->
+    </div> <!--end row-->
+  </div> <!--well col10-->
+</div> <!--controller-->

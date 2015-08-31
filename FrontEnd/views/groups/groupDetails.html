@@ -1,0 +1,83 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<div ng-controller='groupsController' ng-init='loadGroupDetails()'>
+  <div class='panel  content col-xs-10'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <h4>{{ group.group_name }} Details</h4>
+        <hr/>
+
+        
+        <!--Display users information-->
+         <ul class='list-group'>
+          <li class='list-group-item'> <b> Name:</b>  {{group.group_name }} </li>
+          <li class='list-group-item'> <b> Owner:</b>  {{group.owner }} </li>
+          <li class='list-group-item'> <b> Category: </b> <br><br> <span class="category-box" ng-repeat='item in group.category'> {{item}} </span></li>
+          <li class='list-group-item'> <b> Address: </b> <br>
+            <table class="two-row-table">
+              <tr>
+                <th>Street name</th>
+                <td> {{group.address.address}} </td>
+              </tr>
+              <tr>
+                <th>City</th>
+                <td> {{group.address.city}} </td>
+              </tr>
+              <tr>
+                <th>Province</th>
+                <td> {{group.address.state}} </td>
+              </tr>
+              <tr>
+                <th>Country</th>
+                <td> {{group.address.country}} </td>
+              </tr>
+              <tr>
+                <th>Postal Code</th>
+                <td> {{group.address.postal_code}} </td>
+              </tr>
+            </table>
+          </li>
+          <li class='list-group-item'> <b> Members:</b> <ul><li ng-repeat='member in group.members'> {{member}} </li></ul> </li>
+          <li class='list-group-item'> <b> Meeting dates:</b> 
+            <ul>
+              <li ng-repeat='meeting in group.meeting_time' class="meeting-item">
+                <table class="two-row-table-item">
+                  <tr>
+                    <th>Day:</th>
+                    <td> {{meeting.day}} </td>
+                  </tr>
+                  <tr>
+                    <th>Starting time:</th>
+                    <td> {{meeting.start}} </td>
+                  </tr>
+                  <tr>
+                    <th>Ending time:</th>
+                    <td> {{meeting.end}} </td>
+                  </tr>
+                </table>
+              </li>
+            </ul> 
+          </li>
+          <li class='list-group-item'> <b> About this group:</b> <div> {{group.info }} </div> </li>
+
+        </ul>
+        <br>
+        <p>Create in {{group.created}}. </p>
+      </div><!--end left part
+      <!--right part-->
+      <div class='col-xs-5'>
+    	<br><br><br><br>
+        <img class='img-responsive center' src='{{group.image}}'> </img>
+    		<br>
+    		<div class="center"><a ui-sref='groups.edit'><button class="btn btn-primary btn-lg buttons-action" type="button" ng-click="setGroupId()" ng-show="isOwner()" >Edit</button></a></div>
+    		<div class="center"><button class="btn btn-primary btn-lg buttons-action" type="button" ng-show="isNotMember()" ng-click="joinGroup()">Join</button></div>
+
+      </div> <!--end right part-->
+    </div> <!--end row-->
+  </div> <!--well col10-->
+</div> <!--controller-->

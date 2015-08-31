@@ -1,0 +1,42 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<!--List of groups of current user-->
+
+<div ng-controller='userGroupsController' ng-init='init()'>
+  <div class=' content col-xs-10'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <h4> My groups </h4>
+        <hr/>
+
+        <!--Display users groups-->
+        <ul class='list-group'>
+          <li class='list-group-item' ng-repeat='group in groups' style="cursor:pointer;">  <a ng-click="loadGroup()"> {{group.group_name}} </a></li>
+        </ul>
+      </div>
+      <!--end left part-->
+
+      <!--right part-->
+      <div class='col-xs-6' ng-show="display" >
+
+
+        <!--Display information about selected group-->
+        <h5> {{groupName}}</h5>
+        <ul class='list-group'>
+          <li class='list-group-item'> <b> Category:</b> <span ng-repeat='category in categories'> {{category}}{{$last ? '' : ', '}} </span> </li>
+          <li class='list-group-item'> <b> Info: </b> {{info}}</li>
+          <li class='list-group-item'> <b> Members: </b> <span ng-repeat='member in members'> {{member}}{{$last ? '' : ', '}} </span></li>
+          <li class='list-group-item'> <b> Next Event: </b> {{nextEvent}} </li>
+          <li class='list-group-item'> <b> Address: </b> {{address}} </li>
+        </ul>
+
+      </div> <!--end right part-->
+    </div> <!--end row-->
+  </div> <!--well col10-->
+</div> <!--controller-->
+

@@ -1,0 +1,95 @@
+/*
+	Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+*/
+
+/* Move login/register form below */
+.logReg{
+  margin-top: 10%;
+}
+
+.meeting-item{
+	list-style-type: none;
+	padding: 0;
+}
+
+.two-row-table-item{
+	border-spacing: 10px;
+	border-collapse: separate;
+	border-top: 2px solid;
+	width: 90%;
+}
+
+.two-row-table-item th,td{
+	width: 50%;
+}
+
+.two-row-table{
+	border-spacing: 10px;
+	border-collapse: separate;
+	width: 90%;
+}
+
+.two-row-table th,td{
+	width: 50%;
+}
+
+.groups-list{
+	border-collapse: separate;
+    border-spacing: 1px;
+	width: 90%;
+	margin: auto;
+}
+
+.groups-list th,td{
+	width: 20%;
+	padding: 5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.groups-list td ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+.category-box{
+	background-color: gray;
+	color: blue;
+	padding: 5px;
+	margin: 5px;
+	
+}
+
+.buttons-action{
+	width: 60%;
+	
+}
+
+.center{
+	vertical-align: middle;
+	margin: auto;
+	text-align: center;
+}
+
+/*07.29 display full height, 80% and background*/
+html, body {
+  height: 100%;
+}
+
+.main-wrapper{
+	width: 80%; 
+	min-width: 500px;
+	margin: 0 auto; 
+	height: 100%;
+	background: white;
+}
+
+body{
+	background: url('../images/ss.png');
+}
+/*end 07.29 */

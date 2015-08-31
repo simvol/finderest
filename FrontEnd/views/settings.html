@@ -1,0 +1,47 @@
+<!--
+  Authors: 
+    - Evgeny Makarov 
+    - Kimar Arakaki Neves
+    CPSC 2261 - Web Technology (Term Project/Summer 2015)
+    Last modified: 05 AUG 2015
+-->
+<div ng-controller='settingsController' ng-init='init()'>
+  <div class=' content col-xs-10'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <h4> <input ng-model="user.name" /> </h4>
+        <hr/>
+		<form>
+			<div class="form-group">
+				<label for="emailId" > Email: </label>
+				<input id="emailId" class="form-control" ng-model="user.email" />
+			</div>
+			<div class="form-group">
+				<label for="interstsId" > Interests: </label>
+				<textarea rows="2" cols="15" id="intersts" class="form-control" ng-model="user.interests"> </textarea>
+			</div>
+			<div class="form-group">
+				<label for="skillsId" > Skills: </label>
+				<textarea rows="2" cols="15" id="skillsId" class="form-control" ng-model="user.skills"> {{skills}}</textarea>
+			</div>
+			<div class="form-group">
+				<label for="locationsId" > Locations: </label>
+				<textarea rows="2" cols="15" id="locationsId" class="form-control" ng-model="user.locations"> {{locations}}</textarea>
+			</div>
+			<button type="submit" class="btn btn-default" ng-click="updateProfile()"> Save </button>
+			<div ng-show="saved"> Saved! </div>
+		</form>
+
+      </div><!--end left part-->
+      <!--right part-->
+      <div class='col-xs-6'>
+        <img class='img-responsive' src='{{user.image}}'> </img> 
+		<div class="form-group">
+			<label for="userImageId" > Upload new picture: </label>
+			<input class="form-controll" id="userImageId" type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" />
+
+		</div>
+      </div> <!--end right part-->
+    </div> <!--end row-->
+  </div> <!--well col10-->
+</div> <!--controller-->

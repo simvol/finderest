@@ -29,7 +29,11 @@ myApp.controller('loginController',function($scope,$rootScope,$http,$location,$s
 	  		} else {
 	  			// TODO need backend function to retrieve whole information about groups of a user, not only ids
 			    $http({
+<<<<<<< HEAD
 					url: $rootScope.DURL + '/create/users',
+=======
+					url: 'http://finderest.kweb.j43.ca:8080/create/users',
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 					method: 'PUT',
 					dataType: 'json',
 					data: angular.toJson($scope.user)
@@ -58,6 +62,7 @@ myApp.controller('userController',function($scope,$rootScope,$http){
 
   //Get user from session - This must put in scope by the login controller. 
   $scope.email=sessionStorage.getItem("email");
+<<<<<<< HEAD
 
 
   console.log("First request is : " + $rootScope.DURL + '/user/'+$scope.email);
@@ -66,6 +71,13 @@ myApp.controller('userController',function($scope,$rootScope,$http){
   $scope.init = function() {
 		$http({
 		  url: $rootScope.DURL + '/user/'+$scope.email,
+=======
+  
+  //change logged email
+  $scope.init = function() {
+		$http({
+		  url: 'http://finderest.kweb.j43.ca:8080/user/'+$scope.email,
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 		  method: 'GET',
 		  dataType: 'json',
 		  data: '',
@@ -73,8 +85,11 @@ myApp.controller('userController',function($scope,$rootScope,$http){
 
 		  // If data exists then display variables
 		  if (data) {
+<<<<<<< HEAD
 		  	console.log("data: " + data);
 		  	console.log("data str: " + JSON.stringify(data));
+=======
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 			var user = data;
 			$scope.name = user.name;
 			$scope.interests = user.interests;
@@ -90,6 +105,7 @@ myApp.controller('userController',function($scope,$rootScope,$http){
 
 			// after we got all group ids of groups user belongs to, we retrieve group name for each group id
 			// and store it into groups($scope.groups) array
+<<<<<<< HEAD
 			if (groupIds){
 				for (i = 0 ; i < groupIds.length; i++ ){
 					$http({
@@ -109,6 +125,22 @@ myApp.controller('userController',function($scope,$rootScope,$http){
 			} //if groupIds.length 
 			else{
 				groups.push("No groups yet");
+=======
+			for (i = 0 ; i < groupIds.length; i++ ){
+				$http({
+				url: 'http://finderest.kweb.j43.ca:8080/group/'+groupIds[i]+'/name',
+				method: 'GET',
+				dataType: 'json',
+				data: '',
+				}).success(function (data, status, headers, config) {
+					//console.log(data.group_name);
+					//add current group name to the array
+					groups.push(data.group_name);
+				}).error(function (data){
+					console.log("error: " + data);
+				});
+
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 			}
 			
 		  }
@@ -123,14 +155,22 @@ myApp.controller('userController',function($scope,$rootScope,$http){
 });
 
 // Controller for /group page. Gets users information
+<<<<<<< HEAD
 myApp.controller('groupsController',function($scope,$http,$rootScope){
+=======
+myApp.controller('groupsController',function($scope,$http){
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 
   //Get user from session
   $scope.email=sessionStorage.getItem("email");
 
   $scope.init = function() {
     $http({
+<<<<<<< HEAD
       url: $rootScope.DURL + '/group',
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/group',
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'GET',
       dataType: 'json',
       data: '',
@@ -154,7 +194,11 @@ myApp.controller('groupsController',function($scope,$http,$rootScope){
 });
 
 // Controller for /user/mygroups page. Gets users groups information
+<<<<<<< HEAD
 myApp.controller('userGroupsController',function($scope,$http,$rootScope){
+=======
+myApp.controller('userGroupsController',function($scope,$http){
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 
 	//create object user to store all information
 	$scope.user = {};
@@ -167,7 +211,11 @@ myApp.controller('userGroupsController',function($scope,$http,$rootScope){
 
     // TODO need backend function to retrieve whole information about groups of a user, not only ids
     $http({
+<<<<<<< HEAD
       url: $rootScope.DURL + '/user/'+$scope.user.email+'/groups',
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/user/'+$scope.user.email+'/groups',
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'GET',
       dataType: 'json',
       data: '',
@@ -186,7 +234,11 @@ myApp.controller('userGroupsController',function($scope,$http,$rootScope){
         // and store it into groups($scope.groups) array
 	  	for (i = 0 ; i < groupIds.length; i++ ){
 	  		    $http({
+<<<<<<< HEAD
 			      url: $rootScope.DURL + '/group/'+groupIds[i]+'/name',
+=======
+			      url: 'http://finderest.kweb.j43.ca:8080/group/'+groupIds[i]+'/name',
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 			      method: 'GET',
 			      dataType: 'json',
 			      data: '',
@@ -217,7 +269,11 @@ myApp.controller('userGroupsController',function($scope,$http,$rootScope){
   $scope.loadGroup  = function(){
 
   	$http({
+<<<<<<< HEAD
       url: $rootScope.DURL + '/group/'+this.group.group_id,
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/group/'+this.group.group_id,
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'GET',
       dataType: 'json'
     }).success(function (data, status, headers, config) {
@@ -251,7 +307,11 @@ myApp.controller('userGroupsController',function($scope,$http,$rootScope){
 });
 
 // Controller for settings. Change the profile info: name, skills, interets and update the data on the server 
+<<<<<<< HEAD
 myApp.controller('settingsController',function($scope,$http,$rootScope){
+=======
+myApp.controller('settingsController',function($scope,$http){
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 
 	//create object user to store all information
 	$scope.user = {};
@@ -259,11 +319,18 @@ myApp.controller('settingsController',function($scope,$http,$rootScope){
 	//Get user from session - This must put in scope by the login controller. 
 	$scope.user.email = sessionStorage.getItem("email");
 	
+<<<<<<< HEAD
 	console.log("Heres update url : " + $rootScope.DURL + '/user/' + $scope.user.email);
 	$scope.init = function() {
 
 		$http({
 		  url: $rootScope.DURL + '/user/'+$scope.user.email,
+=======
+	$scope.init = function() {
+
+		$http({
+		  url: 'http://finderest.kweb.j43.ca:8080/user/'+$scope.user.email,
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 		  method: 'GET',
 		  dataType: 'json',
 		  data: '',
@@ -293,12 +360,18 @@ myApp.controller('settingsController',function($scope,$http,$rootScope){
 		// Take all date and send it to the server
 		// TODO there's no update user end point? create new will serve this functional?
 		$scope.updateProfile = function () {
+<<<<<<< HEAD
 
 			alert($scope.user.currentEmail);
 
 			$http({
 				//use currentEmail to access the original profile if user is changing email
 				url: $rootScope.DURL + '/update/user/'+$scope.user.currentEmail, 
+=======
+			$http({
+				//use currentEmail to access the original profile if user is changing email
+				url: 'http://finderest.kweb.j43.ca:8080/update/user/'+$scope.user.currentEmail, 
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 				method: 'POST',
 				dataType: 'json',
 				data: angular.toJson($scope.user)
@@ -326,7 +399,11 @@ myApp.controller('settingsController',function($scope,$http,$rootScope){
 });
 
 //make left navbar buttons active
+<<<<<<< HEAD
 myApp.controller('navController',function($scope,$http,$location,$rootScope){
+=======
+myApp.controller('navController',function($scope,$http,$location){
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 	$scope.init = function() {
 		// change navigation bar to active class
 		$scope.getClass = function(path) {
@@ -366,4 +443,8 @@ myApp.controller('headerController',function($scope,$http,$location, Authenticat
 	$scope.logout = function(){
 		Authentication.logout();
 	}
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a

@@ -11,17 +11,28 @@
 angular.module('myApp').factory('Authentication', function Authentication($http, $rootScope, $location, MySession){
 
 	var loggedStatus = false;
+<<<<<<< HEAD
 	$rootScope.DURL = 'http://52.24.4.41:8080';
+=======
+
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 	return {
 
 		//login method
 		login: function(user){
 
+<<<<<<< HEAD
 			var $promise = $http.post($rootScope.DURL + "/user/login",user);
 
 			$promise.then(function(response){
 				if (response.data["success"]== "ok") {
 
+=======
+			var $promise = $http.post("http://finderest.kweb.j43.ca:8080/user/login",user);
+
+			$promise.then(function(response){
+				if (response.data["success"]== "ok") {
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 					MySession.set('email', user.email);
 					MySession.set('token', response.data["token"]);
 					loggedStatus = true;		
@@ -38,7 +49,11 @@ angular.module('myApp').factory('Authentication', function Authentication($http,
 			var session ={
 				"token" : MySession.get('token')
 			};
+<<<<<<< HEAD
 			var $promise = $http.post($rootScope.DURL + "/user/logout",session);
+=======
+			var $promise = $http.post("http://finderest.kweb.j43.ca:8080/user/logout",session);
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 
 			$promise.then(function(response){
 				if (response.data["success"]== "ok") {
@@ -56,7 +71,11 @@ angular.module('myApp').factory('Authentication', function Authentication($http,
 				"token" : MySession.get('token')
 			};
 
+<<<<<<< HEAD
 			var $promise = $http.post($rootScope.DURL + "/user/session/validate",session);
+=======
+			var $promise = $http.post("http://finderest.kweb.j43.ca:8080/user/session/validate",session);
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
 
 			$promise.then(function(response){
 				if (response.data["success"]== "ok") {

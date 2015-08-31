@@ -8,13 +8,21 @@
 
 // Controller for /group page. Gets users information
 myApp.controller('groupsController',function($scope,$rootScope,$http){
+<<<<<<< HEAD
   var URL = 'http://52.24.4.41:8080';
+=======
+
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
   $scope.myArray = [];
 
   $scope.init = function() {
 
     $http({
+<<<<<<< HEAD
       url: URL + '/groups',
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/groups',
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'GET',
       dataType: 'json',
       data: '',
@@ -48,7 +56,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
   console.log($rootScope.selectedGroup );
     
     $http({
+<<<<<<< HEAD
       url: URL + '/group/'+parseInt($rootScope.selectedGroup),
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/group/'+parseInt($rootScope.selectedGroup),
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'GET',
       dataType: 'json'
     }).success(function (data, status, headers, config) {
@@ -77,7 +89,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
 	$scope.newgroup.members = [ sessionStorage.getItem("email") ];
 
     $http({
+<<<<<<< HEAD
       url: URL + '/create/groups',
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/create/groups',
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'PUT',
       dataType: 'json',
       data: $scope.newgroup,
@@ -98,7 +114,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
     console.log($scope.newgroup);
 
     $http({
+<<<<<<< HEAD
       url: URL + '/update/group/'+$scope.newgroup.group_id,
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/update/group/'+$scope.newgroup.group_id,
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'POST',
       dataType: 'json',
       data: $scope.newgroup,
@@ -166,7 +186,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
 
     
     $http({
+<<<<<<< HEAD
       url: URL + '/group/'+parseInt($rootScope.selectedGroup),
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/group/'+parseInt($rootScope.selectedGroup),
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'GET',
       dataType: 'json'
     }).success(function (data, status, headers, config) {
@@ -218,7 +242,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
 
   $scope.joinGroup = function(){
     $http({
+<<<<<<< HEAD
       url: URL + '/request_entry/'+$scope.group.group_id,
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/request_entry/'+$scope.group.group_id,
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'POST',
       dataType: 'json',
       data: {"email": sessionStorage.getItem("email")},
@@ -242,7 +270,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
 
   $scope.approveReq = function(){
     $http({ // POST -- /group/:group_id/approve_request
+<<<<<<< HEAD
       url: URL + '/group/'+$scope.newgroup.group_id+"/approve_request",
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/group/'+$scope.newgroup.group_id+"/approve_request",
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'POST',
       dataType: 'json',
       data: {"email": this.entry_req},
@@ -266,7 +298,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
   
   $scope.rejectReq = function(){
     $http({ // POST -- /group/:group_id/reject_rquest
+<<<<<<< HEAD
       url: URL + '/group/'+$scope.newgroup.group_id+"/reject_rquest",
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/group/'+$scope.newgroup.group_id+"/reject_rquest",
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'POST',
       dataType: 'json',
       data: {"email": this.entry_req},
@@ -297,7 +333,11 @@ myApp.controller('groupsController',function($scope,$rootScope,$http){
 
   $scope.initOwnGroups = function() {
     $http({
+<<<<<<< HEAD
       url: URL + '/group/by_owner/'+sessionStorage.getItem("email"),
+=======
+      url: 'http://finderest.kweb.j43.ca:8080/group/by_owner/'+sessionStorage.getItem("email"),
+>>>>>>> 4533c5d60a7e6fbeb1202bc20609af534113380a
       method: 'GET',
       dataType: 'json',
       data: '',

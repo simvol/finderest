@@ -70,14 +70,18 @@ myApp.controller('userController',function($scope,$rootScope,$http){
 
 		  // If data exists then display variables
 		  if (data) {
-
+		  	console.log("data: " + JSON.stringify(data));
 			var user = data;
 			$scope.name = user.name;
-			$scope.interests = user.interests;
-			$scope.skills = user.skills;
-			$scope.locations = user.locations;
-			$scope.image = user.image;	
+			// $scope.interests = user.interests;
+			// $scope.skills = user.skills;
+			// $scope.locations = user.locations;
+			// $scope.image = user.image;	
 			
+			$scope.interests = (angular.isArray(user.interests)) ? user.interests : user.interests.split(",");
+			$scope.skills = (angular.isArray(user.skills)) ? user.skills : user.skills.split(",");
+			$scope.locations = (angular.isArray(user.locations)) ? user.locations : user.locations.split(",");
+
 			//store group ids
 			var groupIds = user.memberships;
 

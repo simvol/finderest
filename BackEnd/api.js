@@ -220,7 +220,7 @@ app.post("/update/user/:email", function(req, res) {
 
     // find the profile in mongo
     db.users.find({"email" : email}, function(err, records) {  
-        if(records){
+        if(records){    
             db.users.update({"email" : email}, { $set: updatedUser });
             // records.update({$push:{'messages.$' : updatedUser}})
             res.write('{"success":"true"}');
